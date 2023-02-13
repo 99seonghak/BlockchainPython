@@ -12,6 +12,8 @@ node_identifier = str(uuid4()).replace('-', '')
 blockchain = Blockchain()
 
 
+
+
 @app.route('/mine', methods=['GET'])
 def mine():
     last_block = blockchain.last_block
@@ -38,6 +40,10 @@ def mine():
     }
     return jsonify(response), 200
 
+
+
+
+
 @app.route('/transactions/new', methods=['POST'])
 def new_transaction():
     values = request.get_json()
@@ -52,6 +58,10 @@ def new_transaction():
 
     return jsonify(response), 201
 
+
+
+
+
 @app.route('/chain', methods=['GET'])
 def full_chain():
     response = {
@@ -60,6 +70,10 @@ def full_chain():
     }
 
     return jsonify(response), 200
+
+
+
+
 
 
 if __name__ == '__main__':
